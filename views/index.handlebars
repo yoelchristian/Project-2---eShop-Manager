@@ -1,0 +1,15 @@
+                <button class="btn waves-effect waves-light col s12" href="/login">Login</button>
+                                <button class="btn waves-effect waves-light col s12" href="/register">Register</button>    
+
+{{#if isAuthenticated}}
+    <a href="/logout">Logout</a>
+    <h1>{{user.id}}</h1>
+{{/if}}  
+
+<script>
+    alert("asd")
+    $.get("/asd", function(data) {
+        console.log(data);
+    })
+</script>  
+          

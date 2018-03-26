@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/css/register.css">
+
+<div id="registration-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+        <form method="POST" action="/register" class="register-form">
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_box</i>
+                <input class="validate" name="firstName" type="text">
+                <label for="firstName" data-error="wrong">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input class="validate" name="lastName" type="text">
+                <label for="lastName" data-error="wrong">Last Name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment_ind</i>
+                <input class="validate" name="username" type="text" pattern=".{4,15}">
+                <label for="username" data-error="* Length should be between 4-15 characters">User ID</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">mail_outline</i>
+                <input class="validate" name="email" type="email">
+                <label for="email" data-error="* Please enter a valid email address">Email</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">lock_outline</i>
+                <input name="password" type="password">
+                <label for="password">Password</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">done_all</i>
+                <input name="passwordMatch" type="password">
+                <label for="passwordMatch">Re-enter Password</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit</button>          
+            </div>
+            {{#if hasErrors}}
+            <div class="input-field col s12" style="color: red">
+                {{#each messages}}
+                    {{this}}
+                    <br>                   
+                {{/each}}                    
+            </div>
+            {{/if}}
+        </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="/js/register.js" type="text/javascript"></script>
