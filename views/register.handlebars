@@ -7,11 +7,11 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_box</i>
-                <input class="validate" name="firstName" type="text">
-                <label for="firstName" data-error="wrong">First Name</label>
+                <input class="validate" id="firstName" name="firstName" type="text">
+                <label for="firstName">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input class="validate" name="lastName" type="text">
+                <input class="validate" id="lastName" name="lastName" type="text">
                 <label for="lastName" data-error="wrong">Last Name</label>
             </div>
         </div>
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment_ind</i>
-                <input class="validate" name="username" type="text" pattern=".{4,15}">
+                <input class="validate" id="username" name="username" type="text" pattern=".{4,15}">
                 <label for="username" data-error="* Length should be between 4-15 characters">User ID</label>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">mail_outline</i>
-                <input class="validate" name="email" type="email">
+                <input class="validate" id="email" name="email" type="email">
                 <label for="email" data-error="* Please enter a valid email address">Email</label>
             </div>
         </div>
@@ -35,19 +35,19 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">lock_outline</i>
-                <input name="password" type="password">
+                <input id="password" name="password" type="password">
                 <label for="password">Password</label>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">done_all</i>
-                <input name="passwordMatch" type="password">
+                <input id="passwordMatch" name="passwordMatch" type="password">
                 <label for="passwordMatch">Re-enter Password</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s12">
-                <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit</button>          
+                <button class="btn waves-effect waves-light col s12 asd" type="submit">Submit</button>          
             </div>
             {{#if hasErrors}}
             <div class="input-field col s12" style="color: red">

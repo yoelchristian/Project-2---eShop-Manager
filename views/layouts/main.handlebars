@@ -4,17 +4,57 @@
 	<meta charset="UTF-8">
     <title>{{title}}</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
-    {{{ body }}}
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li><div class="user-view center-align">
+            <div class="background">
+                <img src="./images/sidenav-background.jpg">
+            </div>
+            {{#if isAuthenticated}}
+            <a href="#user" class="center-align"><img class="center-align pp" width="100px" src="./images/profile-picture.png"></a>            
+            <a href="#name"><span class="white-text name">{{user.firstName}} {{user.lastName}}</span></a>
+            <a href="#email"><span class="white-text email">{{user.email}}</span></a>
+            <a href="/logout"><button class="btn waves-effect waves-light col s12 user-btn">Logout</button></a>
+            {{else}}
+            <a href="/login" class="center-align"><img class="center-align pp" width="100px" src="./images/17004.svg"></a>            
+            <a href="/login"><span class="white-text name">Welcome Guest</span></a>
+            {{/if}}
+        </div></li>
+
+        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a href="#!">Second Link</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+    <div class="container sidenavTrig">
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons sidenav-trig">menu</i></a>
+    </div>
+    
+    <div class="content">
+        {{{ body }}}
+    </div>
+    
+    
+
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    });
+      
+    </script>
 </body>
 
 </html>

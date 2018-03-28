@@ -1,0 +1,46 @@
+header, main, footer, .content {
+    padding-left: 300px;
+}
+
+.user-view {
+    height: 220px;
+}
+
+.sidenav .user-view .name {
+    margin-top: -15px;
+    font-size: 120%;
+}
+
+.user-btn {
+    width: 300px;
+    margin-left: -32px;
+    margin-top: -11px;
+}
+
+.pp {
+    margin-top: -20px;
+}
+
+.sidenavTrig {
+        display: none;
+}
+
+@media only screen and (max-width : 992px) {
+    .content {
+        margin-left: 0px;
+    }
+
+    .pp {
+        margin-top: 0px;
+    }
+
+    .sidenavTrig {
+        display: inline;
+    }
+
+    .user-btn {
+        width: 300px;
+        margin-left: -15px;
+        margin-top: -11px;
+    }
+}

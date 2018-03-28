@@ -39,18 +39,17 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 var db = require("./models");
-var authRoute = require("./routes/auth-routes.js")(app, passport);
 
 app.use(function(req, res, next) {
     res.locals.isAuthenticated = req.isAuthenticated();
     res.locals.session = req.session;
+    res.locals.user = req.user;
     next();
 });
 
 require("./routes/html-routes.js")(app);
 require("./routes/auth-routes.js")(app, passport);
 require('./config/passport.js')(passport, db.user);
-// require("./routes/post-api-routes.js")(app);
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {

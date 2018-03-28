@@ -4,14 +4,13 @@ var passport = require("passport");
 
 var flash = require("connect-flash");
 
-
 module.exports = function(app) {
     app.get("/index", isLoggedIn, function(req, res) {
-        console.log(req.user)
-        res.render("index", {title: "Index Page", user: req.user});
+        res.render("index", {title: "Index Page"});
     });
 
-    app.get("/asd", isLoggedIn, function(req, res) {
+    app.get("/api/current-user", isLoggedIn, function(req, res) {
+        delete req.user.password;
         res.send(req.user);
     })
 

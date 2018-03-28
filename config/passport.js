@@ -53,7 +53,7 @@ passport.use("local-register", new LocalStrategy(
     
     User.findOne({
       where: {
-          email: email
+          email: req.body.email
       }
       }).then(function(user) {
         if(user) {
@@ -71,9 +71,9 @@ passport.use("local-register", new LocalStrategy(
                 message: "* Sorry, the email or username is registered to another account."
               });
             } else {
-              var userPassword = generateHash(password);
+              var userPassword = generateHash(req.body.password);
               var data = {
-                email: email,
+                email: req.body.email,
                 password: userPassword,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,

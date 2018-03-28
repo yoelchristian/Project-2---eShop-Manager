@@ -7,7 +7,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment_ind</i>
-                <input class="validate" name="email" type="text" pattern=".{4,50}">
+                <input class="validate" name="email" id="email" type="text" pattern=".{4,50}">
                 <label for="email" data-error="* Length should be between 4-15 characters">User ID / Email</label>
             </div>
         </div>
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">lock_outline</i>
-                <input name="password" type="password">
+                <input name="password" id="password" type="password">
                 <label for="password">Password</label>
             </div>
         </div>
@@ -24,6 +24,7 @@
             <div class="input-field col s12">
                 <button class="btn waves-effect waves-light col s12" type="submit" name="action">Login</button>          
             </div>
+            
             {{#if hasErrors}}
             <div class="input-field col s12" style="color: red">
                 {{#each messages}}
@@ -32,6 +33,15 @@
                 {{/each}}                    
             </div>
             {{/if}}
+
+            <div class="input-field col s12 divider"></div>
+            <div class="col s12 center-align">
+                <span>- OR -</span>
+            </div>
+            
+            <div class="input-field col s12 offset-s2">
+                <a class="btn waves-effect waves-light col s8" href="/register">Register</a>
+            </div>
         </div>
 
         </form>
