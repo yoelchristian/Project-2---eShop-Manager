@@ -1,12 +1,18 @@
 var path = require("path");
-var csrf = require("csurf");
 var passport = require("passport");
+var db = require("../models");
+var Op = db.Sequelize.Op;
 
 var flash = require("connect-flash");
 
 module.exports = function(app) {
-    app.get("/index", isLoggedIn, function(req, res) {
-        res.render("index", {title: "Index Page"});
+    app.get("/", isLoggedIn, function(req, res) {
+        db.Product.findAll({
+            where: {activeStatus: 1}
+        }).then(function(result) {
+            res.render("index", {title: "Index Page", products: result});
+        })
+        
     });
 
     app.get("/api/current-user", isLoggedIn, function(req, res) {
@@ -16,6 +22,10 @@ module.exports = function(app) {
 
     app.get("/private", isLoggedIn, function(req, res) {
         res.render("index", {title: "private"});
+    })
+
+    app.get("/products", isLoggedIn, function(req, res) {
+        res.render("product", {title: "Manage Product"});
     })
 
     function isLoggedIn(req, res, next) {

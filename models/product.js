@@ -1,38 +1,29 @@
 module.exports = function(sequelize, DataTypes) {
-    var User = sequelize.define("user", {
-        userId: {
+    var Product = sequelize.define("Product", {
+        productId: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        email: {
+        productName: {
             type: DataTypes.STRING,
-            isEmail: true,
             notNull: true,
             unique: true,
         },  
-        username: {
-            type: DataTypes.STRING,
-            notNull: true,
-            unique: true,
-        },
-        password: {
-            type: DataTypes.STRING,
-            notNull: true,
-        },
-        firstName: {
+        productDescription: {
             type: DataTypes.TEXT,
             notNull: true,
         },
-        lastName: {
-            type: DataTypes.TEXT,
+        productPrice: {
+            type: DataTypes.DECIMAL(10,2),
             notNull: true,
         },
-        userImage :{
-            type: DataTypes.TEXT,
+        productPurchasePrice: {
+            type: DataTypes.DECIMAL(10,2),
+            notNull: true,
         },
-        role: {
-            type: DataTypes.ENUM("administrator", "customer"),
+        productImage: {
+            type: DataTypes.TEXT,
             notNull: true,
         },
         activeStatus: {
@@ -41,5 +32,5 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    return User;
+    return Product;
 }

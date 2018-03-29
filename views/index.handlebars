@@ -1,19 +1,38 @@
-<div>
-    <h1>asdasdasdasdadsasdsadsads
-        asdasdasdasdasdsadasdsad
-        adsasdsadsadasdsadsadas
-    </h1>
+<div class="container">
+  <div class="row">
+    {{#each products}}
+    <div class="col s12 m4 l3">
+      <div class="card sticky-action medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{{this.productImage}}">
+        </div>
+
+        <div class="card-content" style="overflow: auto; padding: 10px; padding-bottom: 40px;">
+          <span class="card-title activator grey-text text-darken-4">{{this.productName}}<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">Brief Description of Product</a></p>
+        </div>
+
+        <div class="card-action" style="padding: 5px;">
+          <a href="/add-to-cart/{{this.productId}}">$ {{this.productPrice}}<i class="material-icons right">add_shopping_cart</i></a>
+        </div>
+
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{this.productName}}<i class="material-icons right">close</i></span>
+          <p>{{this.productDescription}}</p>
+        </div>
+      </div>
+    </div>
+    
+    {{/each}} 
+  </div>
+    
 </div>
 
 
-{{#if isAuthenticated}}
-    <a href="/logout">Logout</a>
-    <h1>{{user.id}}</h1>
-{{/if}}  
+
+
+
                
 
 
-<script>
-    
-</script>  
-          
+

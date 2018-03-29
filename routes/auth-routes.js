@@ -8,7 +8,7 @@ module.exports = function(app, passport) {
     app.get("/login", authController.login);
 
     app.post("/register", passport.authenticate("local-register", {
-        successRedirect: "/index",
+        successRedirect: "/",
         failureRedirect: "/register",
         failureFlash: true,
     }));
@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
     app.get("/logout", authController.logout);
 
     app.post("/login", passport.authenticate("local-login", {
-        successRedirect: "/index",
+        successRedirect: "/",
         failureRedirect: "/login",
         failureFlash: true,
     }));

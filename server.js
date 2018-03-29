@@ -29,6 +29,7 @@ app.use(session({
     resave: false, 
     store: sessionStore,
     saveUninitialized: false,
+    cookie: {maxAge: 180 * 60 * 1000}
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,11 +44,16 @@ var db = require("./models");
 app.use(function(req, res, next) {
     res.locals.isAuthenticated = req.isAuthenticated();
     res.locals.session = req.session;
+    var userData = req.user;
+    if(userData) {
+        delete userData.password;
+    } ;
     res.locals.user = req.user;
     next();
 });
 
 require("./routes/html-routes.js")(app);
+require("./routes/product-routes.js")(app);
 require("./routes/auth-routes.js")(app, passport);
 require('./config/passport.js')(passport, db.user);
 
