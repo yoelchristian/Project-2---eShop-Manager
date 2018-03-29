@@ -21,6 +21,11 @@ module.exports = function(app, passport) {
         failureFlash: true,
     }));
 
+    app.get("/api/current-user", isLoggedIn, function(req, res) {
+        delete req.user.password;
+        res.send(req.user);
+    })
+
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();

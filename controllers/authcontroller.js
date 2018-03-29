@@ -13,7 +13,7 @@ exports.login = function(req, res) {
 
 exports.logout = function(req, res){
     req.logout();
-    req.session.destroy();
+    // req.session.destroy();
     res.redirect('/');
     console.log(req.user);
 }

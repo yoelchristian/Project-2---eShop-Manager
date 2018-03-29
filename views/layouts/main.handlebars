@@ -32,9 +32,15 @@
         </div></li>
 
         <li><a href="/"><i class="material-icons">home</i>Home Page</a></li>
-        <li><a href="/products">Manage Products</a></li>
+        {{#if session.cart.totalQty}}
+        <li><a href="/cart"><i class="material-icons">shopping_cart</i>View Cart<span class="badge">{{session.cart.totalQty}}</span></a></li>
+        {{else}}
+        <li><a class="subheader"><i class="material-icons">shopping_cart</i>View Cart</a></li>
+        {{/if}}        
         <li><div class="divider"></div></li>
-        <li><a class="subheader">Subheader</a></li>
+        <li><a class="subheader">Product Management</a></li>
+        <li><a class="waves-effect" href="/products">Add Product</a></li>
+        <li><div class="divider"></div></li>
         <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     </ul>
 

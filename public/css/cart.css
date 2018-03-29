@@ -12,6 +12,9 @@ body {
     background: #4ECDC4;
 }
 
-#login-page {
-    width: 500px;
+#cart-page {
+    
+    width: 600px;
+    min-width: 600px;
+    height: 80vh;
 }
