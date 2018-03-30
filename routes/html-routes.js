@@ -25,8 +25,16 @@ module.exports = function(app) {
     })
 
     app.get("/cart", function(req, res) {
+        if(!req.session.cart) {
+            return res.redirect("/");
+        }
         var cart = new Cart(req.session.cart);
         res.render("cart", {title: "Shopping Cart", cartContent: cart.generateArray(), totalPrice: (cart.totalPrice).toFixed(2)});
+    })
+
+    app.get("/checkout", function(req, res) {
+        var cart = new Cart(req.session.cart);
+        res.render("checkout", {title: "Checkout", total: cart.totalPrice});
     })
 
     function isLoggedIn(req, res, next) {

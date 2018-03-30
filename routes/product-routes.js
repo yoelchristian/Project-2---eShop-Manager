@@ -28,4 +28,11 @@ module.exports = function(app) {
             res.redirect("/");
         })
     })
+
+    app.post("/checkout", function(req, res) {
+        console.log(req.session.cart.items)
+        req.session.cart = null;
+        res.redirect("/");
+        console.log(req.session.cart)
+    })
 }
