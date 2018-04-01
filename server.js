@@ -1,6 +1,6 @@
 var express = require("express");
-var mysql = require("mysql");
-var connection;
+// var mysql = require("mysql");
+// var connection;
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
@@ -13,16 +13,16 @@ var MySQLStore = require("express-mysql-session")(session);
 var PORT = process.env.PORT || 8080;
 var app = express();
 
-if(process.env.JAWSDB_URL) {
-    connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-    connection = mysql.createConnection({
-        hots: "localhost",
-        user: "yoelchristian",
-        password: "yoelyoel",
-        database: "project2"
-    })
-}
+// if(process.env.JAWSDB_URL) {
+//     connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+//     connection = mysql.createConnection({
+//         hots: "localhost",
+//         user: "yoelchristian",
+//         password: "yoelyoel",
+//         database: "project2"
+//     })
+// }
 
 var options = {
     host: "localhost",
