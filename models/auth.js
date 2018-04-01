@@ -41,7 +41,11 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    
+    User.associate = function(models) {
+        User.hasMany(models.Orders, {
+            onDelete: "cascade"
+        });
+    };
 
     return User;
 }
