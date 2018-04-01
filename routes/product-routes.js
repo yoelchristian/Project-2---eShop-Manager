@@ -30,9 +30,33 @@ module.exports = function(app) {
     })
 
     app.post("/checkout", function(req, res) {
-        console.log(req.session.cart.items)
-        req.session.cart = null;
-        res.redirect("/");
-        console.log(req.session.cart)
+        var cart = req.session.cart.items;
+        var cartLength = Object.keys(cart);
+
+        for(var i = 0; i < cartLength.length; i ++) {
+            var itemId = cartLength[i]
+            var orderData = {
+                orderedItemName: cart[itemId].item.productName,
+                orderedItemQty: cart[itemId].qty,
+                orderedItemPrice: cart[itemId].item.productPrice,
+                orderedItemPriceTotal: cart[itemId].price,
+                userUserId: req.user.userId
+            }
+            db.Orders.create(orderData)         
+        }
+        setTimeout(function() {
+            db.user.findAll({
+                include: [db.Orders]
+            }).then(function(result) {
+                res.json(result);
+            })
+        }, 5000)
+        
+
+        
+        // console.log(req.session.cart.items)
+        // req.session.cart = null;
+        // res.redirect("/");
+        // console.log(req.session.cart)
     })
 }

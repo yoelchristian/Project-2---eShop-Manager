@@ -1,0 +1,8 @@
+"userId";"email";"username";"password";"firstName";"lastName";"role";"activeStatus";"createdAt";"updatedAt";"userImage"
+1;"yoelchristian@email.com";"yoelchristian";"$2a$08$pRjcN0tLXac1KSyIZ2Laq.a5tjMZArFa8sATxRuC6p63DCZG1q8NK";"Yoel";"Christian";"administrator";1;"2018-03-28 20:46:24";"2018-03-28 20:46:24";""
+2;"alphabeta@email.com";"alphabeta";"$2a$08$IkWr242ZVdjG9RuXX4bHnORtqhF/CCDCJQgRpANtfcOIHJH//vAH2";"Alpha";"Beta";"customer";1;"2018-03-28 20:55:58";"2018-03-28 20:55:58";""
+5;"qdsdd@owkc.om";"wqdqs";"$2a$08$jPJ98UW/DthetQAsycIE9eJWCy8Zc5Y22C0GB5SWO7rWcEoXtFivS";"qwdqw";"sdq";"customer";1;"2018-03-28 21:29:40";"2018-03-28 21:29:40";""
+6;"wqodkowq@wodk.com";"wqodkoq";"$2a$08$2sQaU.QJTUvjF07hPAP3xOMubxZ0qONiPVPK42WrzgM.PYoRaadPu";"qwdkoqwk";"slakdl";"customer";1;"2018-03-28 21:31:17";"2018-03-28 21:31:17";""
+8;"betacharlie@email.com";"betacharlie";"$2a$08$l5JBXnGY2EqcuG5x02PqdukQFs0y0Vg0VVHEGDsmcTaB8b9SJZ/dq";"Beta";"Charlie";"customer";1;"2018-03-28 21:36:55";"2018-03-28 21:36:55";""
+9;"charliedelta@email.com";"charliedelta";"$2a$08$1/oU9ZiQxxBXCz4AEkwXbuOZuI/dxArcUB1vXbcRy6eMIJ4.OpiIe";"Charlie";"Delta";"customer";1;"2018-03-28 21:39:09";"2018-03-28 21:39:09";""
+10;"deltaepsilon@email.com";"deltaepsilon";"$2a$08$lv2Kc3i9gWz8NbA90N7/QO4vBv4Y7ZMfj.LpsCUR0nUmPO6voGgeW";"Delta";"Epsilon";"customer";1;"2018-03-28 21:55:41";"2018-03-28 21:55:41";""
