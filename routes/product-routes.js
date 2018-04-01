@@ -42,21 +42,21 @@ module.exports = function(app) {
                 orderedItemPriceTotal: cart[itemId].price,
                 userUserId: req.user.userId
             }
-            db.Orders.create(orderData)         
+            db.Orders.create(orderData)     
         }
         setTimeout(function() {
-            db.user.findAll({
-                include: [db.Orders]
+            // db.user.findAll({
+            //     include: [db.Orders]
+            // }).then(function(result) {
+            //     res.json(result);
+            //     req.session.cart = null;
+            // })
+            db.Orders.findAll({
+                where: {userUserId: 1},
+                include: [db.user]
             }).then(function(result) {
                 res.json(result);
             })
-        }, 5000)
-        
-
-        
-        // console.log(req.session.cart.items)
-        // req.session.cart = null;
-        // res.redirect("/");
-        // console.log(req.session.cart)
+        }, 5000)           
     })
 }
