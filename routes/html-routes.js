@@ -12,13 +12,8 @@ module.exports = function(app) {
             where: {activeStatus: 1}
         }).then(function(result) {
             res.render("index", {title: "Index Page", products: result});
-        })
-        
+        })  
     });
-
-    app.get("/private", isLoggedIn, function(req, res) {
-        res.render("index", {title: "private"});
-    })
 
     app.get("/products", isLoggedIn, function(req, res) {
         res.render("product", {title: "Manage Product"});
@@ -36,6 +31,10 @@ module.exports = function(app) {
         var cart = new Cart(req.session.cart);
         res.render("checkout", {title: "Checkout", total: cart.totalPrice});
     })
+
+    app.get("/orders", function(req, res) {
+        res.render("orders", {title: "Orders"}); 
+    });
 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())

@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
 
     app.get("/api/current-user", isLoggedIn, function(req, res) {
         delete req.user.password;
-        res.send(req.user);
+        res.json(req.user);
     })
 
     function isLoggedIn(req, res, next) {

@@ -15,5 +15,4 @@ exports.logout = function(req, res){
     req.logout();
     req.session.destroy();
     res.redirect('/');
-    console.log(req.user);
 }

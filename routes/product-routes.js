@@ -24,7 +24,6 @@ module.exports = function(app) {
         db.Product.findById(productId).then(function(product) {
             cart.add(product, product.productId);
             req.session.cart = cart;
-            console.log(req.session.cart)
             res.redirect("/");
         })
     })
@@ -44,19 +43,15 @@ module.exports = function(app) {
             }
             db.Orders.create(orderData)     
         }
-        setTimeout(function() {
-            // db.user.findAll({
-            //     include: [db.Orders]
-            // }).then(function(result) {
-            //     res.json(result);
-            //     req.session.cart = null;
-            // })
-            db.Orders.findAll({
-                where: {userUserId: 1},
-                include: [db.user]
-            }).then(function(result) {
-                res.json(result);
-            })
-        }, 5000)           
+        req.session.cart = null;
+        res.redirect("/");         
+    })
+
+    app.get("/api/orders", function(req, res) {
+        db.Orders.findAll({
+            where: {userUserId: req.user.userId},
+        }).then(function(result) {
+            res.json(result); 
+        })
     })
 }

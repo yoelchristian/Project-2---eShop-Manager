@@ -1,0 +1,20 @@
+html,body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background: #4ECDC4;
+}
+
+#cart-page {
+    
+    width: 1000px;
+    min-width: 600px;
+    height: 80vh;
+}

@@ -10,6 +10,8 @@
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js"></script>
+
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -31,17 +33,20 @@
             {{/if}}
         </div></li>
 
-        <li><a href="/"><i class="material-icons">home</i>Home Page</a></li>
+        <li><a href="/"><i class="material-icons">home</i>Home</a></li>
         {{#if session.cart.totalQty}}
         <li><a href="/cart"><i class="material-icons">shopping_cart</i>View Cart<span class="badge">{{session.cart.totalQty}}</span></a></li>
         {{else}}
         <li><a class="subheader"><i class="material-icons">shopping_cart</i>View Cart</a></li>
-        {{/if}}        
+        {{/if}}
+        {{#if isAuthenticated}}
+        <li><a href="/orders"><i class="material-icons">donut_large</i>View Orders</a></li>
+        {{else}}
+        <li><a class="subheader"><i class="material-icons">donut_large</i>View Orders</a></li>
+        {{/if}}
         <li><div class="divider"></div></li>
         <li><a class="subheader">Product Management</a></li>
         <li><a class="waves-effect" href="/products">Add Product</a></li>
-        <li><div class="divider"></div></li>
-        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     </ul>
 
     <div class="container sidenavTrig">
