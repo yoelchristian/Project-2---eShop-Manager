@@ -11,13 +11,19 @@ var MySQLStore = require("express-mysql-session")(session);
 var PORT = process.env.PORT || 8080;
 var app = express();
 
-var options = {
+var options;
+if (process.env.JAWSDB_URL) {
+	options = process.env.JAWSDB_URL;
+} else {
+    options = {
     host: "localhost",
     port: 3306,
     user: "yoelchristian",
     password: "yoelyoel",
     database: "project2"
-};
+    };
+}
+
 var sessionStore = new MySQLStore(options);
 
 app.use(bodyParser.urlencoded({ extended: true }));
